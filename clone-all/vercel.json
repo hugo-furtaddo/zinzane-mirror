@@ -1,0 +1,32 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+
+  "builds": [
+    { "src": "**/*.html", "use": "@vercel/static" },
+    { "src": "**/*.css",  "use": "@vercel/static" },
+    { "src": "**/*.js",   "use": "@vercel/static" },
+    { "src": "**/*.{png,jpg,jpeg,gif,svg}", "use": "@vercel/static" },
+    { "src": "**/*.{woff,woff2,ttf,eot}",   "use": "@vercel/static" }
+  ],
+
+
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/index.html",
+      "statusCode": 302
+    }
+  ],
+
+  "rewrites": [
+    {
+      "source": "/:path*/",
+      "destination": "/:path*/index.html"
+    }
+  ],
+
+
+  "cleanUrls": true,
+  "trailingSlash": true
+}
