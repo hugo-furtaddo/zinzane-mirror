@@ -14,31 +14,18 @@
         "destination": "/clone-all/index.html"
       },
       {
-        "source": "/:path*/",
-        "destination": "/clone-all/:path*/index.html"
-      },
-      {
         "source": "/:path*",
         "destination": "/clone-all/:path*/index.html"
       }
     ],
     "headers": [
       {
-        "source": "/clone-all/:path*/*.json",
+        "source": "/clone-all/:path*",
         "headers": [
-          { "key": "Access-Control-Allow-Origin", "value": "*" }
-        ]
-      },
-      {
-        "source": "/clone-all/:path*/*.js",
-        "headers": [
-          { "key": "Access-Control-Allow-Origin", "value": "*" }
-        ]
-      },
-      {
-        "source": "/clone-all/:path*/*.{woff,woff2,ttf,eot,svg}",
-        "headers": [
-          { "key": "Access-Control-Allow-Origin", "value": "*" }
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
         ]
       }
     ],
