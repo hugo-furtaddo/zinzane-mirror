@@ -8,10 +8,25 @@
       { "src": "clone-all/**/*.{png,jpg,jpeg,gif,svg}", "use": "@vercel/static" },
       { "src": "clone-all/**/*.{woff,woff2,ttf,eot}",   "use": "@vercel/static" }
     ],
-    "rewrites": [
-      { "source": "/",       "destination": "/clone-all/index.html" },
-      { "source": "/:path*", "destination": "/clone-all/:path*/index.html" }
+    "redirects": [
+      {
+        "source": "/clone-all/:path*",
+        "destination": "/:path*",
+        "statusCode": 301
+      }
     ],
+  
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/clone-all/index.html"
+      },
+      {
+        "source": "/:path*",
+        "destination": "/clone-all/:path*/index.html"
+      }
+    ],
+  
     "headers": [
       {
         "source": "/clone-all/:path*",
@@ -20,6 +35,7 @@
         ]
       }
     ],
+  
     "cleanUrls": true,
     "trailingSlash": true,
     "outputDirectory": "."
