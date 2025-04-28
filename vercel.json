@@ -9,29 +9,19 @@
       { "src": "clone-all/**/*.{woff,woff2,ttf,eot}",   "use": "@vercel/static" }
     ],
     "rewrites": [
-      {
-        "source": "/",
-        "destination": "/clone-all/index.html"
-      },
-      {
-        "source": "/:path*",
-        "destination": "/clone-all/:path*/index.html"
-      }
+      { "source": "/",       "destination": "/clone-all/index.html" },
+      { "source": "/:path*", "destination": "/clone-all/:path*/index.html" }
     ],
     "headers": [
       {
         "source": "/clone-all/:path*",
         "headers": [
-          {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          }
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
         ]
       }
     ],
     "cleanUrls": true,
     "trailingSlash": true,
-    "ignoreCommand": "echo \"Ignorando build\"",
     "outputDirectory": "."
   }
   
