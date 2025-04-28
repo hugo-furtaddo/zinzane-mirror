@@ -9,41 +9,24 @@
       { "src": "clone-all/**/*.{png,jpg,jpeg,gif,svg}", "use": "@vercel/static" },
       { "src": "clone-all/**/*.{woff,woff2,ttf,eot}",   "use": "@vercel/static" }
     ],
-  
 
     "redirects": [
       {
-        "source": "/clone-all/:path*",
-        "destination": "/clone-all/:path*",
-        "statusCode": 301
+        "source": "/",
+        "destination": "/clone-all/",
+        "statusCode": 302
       }
     ],
   
+
     "rewrites": [
       {
-        "source": "/api/sessions/:path*",
-        "destination": "https://www.zinzane.com.br/api/sessions/:path*"
-      },
-      {
-        "source": "/_v/segment/graphql/v1/:path*",
-        "destination": "https://www.zinzane.com.br/_v/segment/graphql/v1/:path*"
-      },
-      {
-        "source": "/",
+        "source": "/clone-all",
         "destination": "/clone-all/index.html"
       },
       {
-        "source": "/:path*",
+        "source": "/clone-all/:path*/",
         "destination": "/clone-all/:path*/index.html"
-      }
-    ],
-
-    "headers": [
-      {
-        "source": "/clone-all/:path*",
-        "headers": [
-          { "key": "Access-Control-Allow-Origin", "value": "*" }
-        ]
       }
     ],
   
