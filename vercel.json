@@ -1,14 +1,15 @@
 {
+    "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
     "builds": [
       { "src": "clone-all/**/*.html", "use": "@vercel/static" },
       { "src": "clone-all/**/*.css",  "use": "@vercel/static" },
       { "src": "clone-all/**/*.js",   "use": "@vercel/static" }
     ],
-    "routes": [
+    "rewrites": [
       {
-        "src": "^/(.*)/?$",
-        "dest": "/clone-all/$1/index.html"
+        "source": "^/(.*)/?$",
+        "destination": "/clone-all/$1/index.html"
       }
     ],
     "trailingSlash": true,
