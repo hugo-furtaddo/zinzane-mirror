@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "clone-all/**/*.html", "use": "@vercel/static" },
+      { "src": "clone-all/**/*.css",  "use": "@vercel/static" },
+      { "src": "clone-all/**/*.js",   "use": "@vercel/static" }
+    ],
+    "routes": [
+      {
+        "src": "^/(.*)/?$",
+        "dest": "/clone-all/$1/index.html"
+      }
+    ],
+    "trailingSlash": true,
+    "cleanUrls": true,
+    "ignoreCommand": "echo \"Ignorando build\"",
+    "outputDirectory": "."
+  }
+  
