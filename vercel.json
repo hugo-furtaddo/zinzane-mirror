@@ -4,16 +4,46 @@
     "builds": [
       { "src": "clone-all/**/*.html", "use": "@vercel/static" },
       { "src": "clone-all/**/*.css",  "use": "@vercel/static" },
-      { "src": "clone-all/**/*.js",   "use": "@vercel/static" }
+      { "src": "clone-all/**/*.js",   "use": "@vercel/static" },
+      { "src": "clone-all/**/*.{png,jpg,jpeg,gif,svg}", "use": "@vercel/static" },
+      { "src": "clone-all/**/*.{woff,woff2,ttf,eot}",   "use": "@vercel/static" }
     ],
     "rewrites": [
       {
-        "source": "^/(.*)/?$",
-        "destination": "/clone-all/$1/index.html"
+        "source": "/",
+        "destination": "/clone-all/index.html"
+      },
+      {
+        "source": "/:path*/",
+        "destination": "/clone-all/:path*/index.html"
+      },
+      {
+        "source": "/:path*",
+        "destination": "/clone-all/:path*/index.html"
       }
     ],
-    "trailingSlash": true,
+    "headers": [
+      {
+        "source": "/clone-all/:path*/*.json",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      },
+      {
+        "source": "/clone-all/:path*/*.js",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      },
+      {
+        "source": "/clone-all/:path*/*.{woff,woff2,ttf,eot,svg}",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      }
+    ],
     "cleanUrls": true,
+    "trailingSlash": true,
     "ignoreCommand": "echo \"Ignorando build\"",
     "outputDirectory": "."
   }
