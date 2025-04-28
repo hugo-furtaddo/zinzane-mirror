@@ -14,7 +14,7 @@
     "redirects": [
       {
         "source": "/clone-all/:path*",
-        "destination": "/:path*",
+        "destination": "/clone-all/:path*",
         "statusCode": 301
       }
     ],
